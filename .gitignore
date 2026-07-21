@@ -1,0 +1,13 @@
+# Icarus Verilog
+a.out
+*.vvp
+*.vcd
+*.gtkw
+sim
+sim.exe
+
+# VS Code
+.vscode/
+
+# Windows
+Thumbs.db

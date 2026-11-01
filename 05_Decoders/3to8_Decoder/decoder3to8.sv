@@ -4,16 +4,32 @@ module decoder3to8(
     input logic b,
     input logic c,
 
-    output logic y[7:0]
+    output logic [7:0] y
 
 );
 
-assign y0 = ~a & ~b & ~c;
-assign y1 = ~a & ~b & c;
-assign y2 = ~a & b & ~c;
-assign y3 = a & ~b & ~c;
-assign y4 = a & ~b & ~c;
-assign y5 = ~a & ~b & ~c;
-assign y6 = ~a & ~b & ~c;
-assign y7 = ~a & ~b & ~c;
-assign y8 = ~a & ~b & ~c;
+logic en1;
+logic en2;
+
+assign en1 = ~a;
+assign en2 = a;
+
+decoder2to4 D1(
+
+    .a(b),
+    .b(c),
+    .en(en1),
+    .y(y[3:0])
+
+);
+
+decoder2to4 D2(
+
+    .a(b),
+    .b(c),
+    .en(en2),
+    .y(y[7:4])
+
+);
+
+endmodule

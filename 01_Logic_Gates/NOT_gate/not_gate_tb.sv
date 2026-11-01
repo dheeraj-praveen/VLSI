@@ -15,16 +15,15 @@ initial begin
     $dumpfile("wave.vcd");
     $dumpvars(0, not_gate_tb);
 
-    $display("A | B");
-    $display("-----");
-
-    a = 1; #10;
-    $display("%b  %b", a, b);
+    $display("a  b");
+    $display("----");
 
     a = 0; #10;
     $display("%b  %b", a, b);
 
-    $finish;
+    a = 1; #10;
+    $display("%b  %b", a, b);
 
+    $finish;
 end
 endmodule

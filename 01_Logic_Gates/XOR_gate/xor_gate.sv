@@ -1,10 +1,8 @@
 module xor_gate(
 
-    input logic a,
-
-    input logic b,
-
-    output logic y
+    input a,
+    input b,
+    output y
 
 );
 

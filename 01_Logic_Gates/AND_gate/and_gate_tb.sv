@@ -2,39 +2,37 @@ module and_gate_tb;
 
 logic a;
 logic b;
-logic c;
+logic y;
 
-and_gate uut(
+and_gate uut (
 
     .a(a),
-
     .b(b),
-
-    .c(c)
+    .y(y)
 
 );
 
 initial begin
-
+    
     $dumpfile("wave.vcd");
     $dumpvars(0, and_gate_tb);
-    
-    $display("A B | C");
+
+    $display("A B | Y");
     $display("-------");
 
     a = 0; b = 0; #10;
-    $display("%b %b  %b", a, b, c);
+    $display("%b %b  %b", a, b, y); 
 
     a = 0; b = 1; #10;
-    $display("%b %b  %b", a, b, c);
+    $display("%b %b  %b", a, b, y);
 
-    a = 1; b = 0; #10;
-    $display("%b %b  %b", a, b, c);
+    a = 1; b = 0; #10
+    $display("%b %b  %b", a, b, y);
 
-    a = 1; b = 1; #10;
-    $display("%b %b  %b", a, b, c);
+    a = 1; b = 1; #10
+    $display("%b %b  %b", a, b, y);
 
-    $finish
+    $finish;
 
 end
 

@@ -1,39 +1,38 @@
+
 module or_gate_tb;
 
-logic a;
-logic b;
-logic c;
+    logic a;
+    logic b;
+    logic y;
 
-or_gate uut(
+    or_gate uut(
+        .a(a),
+        .b(b),
+        .y(y)
+    );
 
-    .a(a),
-    .b(b),
-    .c(c)
+    initial begin
 
-);
+        $dumpfile("wave.vcd");
+        $dumpvars(0, or_gate_tb);
 
-initial begin
-    
-    $dumpfile("wave.vcd");
-    $dumpvars(0, or_gate_tb);
+        $display("A B | Y");
+        $display("-------");
 
-    $display("A B | C");
-    $display("-------");
+        a = 0; b = 0; #10;
+        $display("%b %b  %b", a, b, y);
 
-    a = 0; b = 0; #10;
-    $display("%b %b  %b", a, b, c);
+        a = 0; b = 1; #10;
+        $display("%b %b  %b", a, b, y);
 
-    a = 0; b = 1; #10;
-    $display("%b %b  %b", a, b, c);
+        a = 1; b = 0; #10;
+        $display("%b %b  %b", a, b, y);
 
-    a = 1; b = 0; #10;
-    $display("%b %b  %b", a, b, c);
+        a = 1; b = 1; #10;
+        $display("%b %b  %b", a, b, y);
 
-    a = 1; b = 1; #10;
-    $display("%b %b  %b", a, b, c);
+        $finish;
 
-    $finish;
-
-end
+    end
 
 endmodule

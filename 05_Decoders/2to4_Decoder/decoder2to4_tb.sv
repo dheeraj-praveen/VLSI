@@ -3,28 +3,16 @@ module decoder2to4_tb;
 logic a;
 logic b;
 logic en;
-logic y0;
-logic y1;
-logic y2;
-logic y3;
+logic [3:0]y;
 
 integer i;
 
 decoder2to4 uut(
 
     .a(a),
-
     .b(b),
-
     .en(en),
-
-    .y0(y0),
-
-    .y1(y1),
-
-    .y2(y2),
-
-    .y3(y3)
+    .y(y)
 
 );
 
@@ -33,22 +21,22 @@ initial begin
     $dumpfile("wave.vcd");
     $dumpvars(0, decoder2to4_tb);
 
-    $display("A B | Y0 Y1 Y2 Y3");
+    $display("A B en | Y0 Y1 Y2 Y3");
     $display("-----------------");
 
-    for (i = 0; i < 4; i++) begin
+    for (i = 0; i < 8; i++) begin
 
         a = i[0];
         b = i[1];
+        en = i[2];
 
         #10;
-
-        $display("%b %b | %b %b %b %b", a, b, y0, y1, y2, y3);
+        $display("%b %b %b  %b  %b  %b  %b",a,b,en,y[0],y[1],y[2],y[3]);
 
     end
 
     $finish;
-
+    
 end
 
 endmodule

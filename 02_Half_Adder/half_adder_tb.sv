@@ -5,8 +5,6 @@ logic b;
 logic sum;
 logic carry;
 
-integer i;
-
 half_adder uut(
 
     .a(a),
@@ -21,19 +19,20 @@ initial begin
     $dumpfile("wave.vcd");
     $dumpvars(0, half_adder_tb);
 
-    $display("A B | S C");
-    $display("---------");
+    $display("a b  sum  carry");
+    $display("---------------");
 
-    for(i = 0; i < 4; i = i + 1) begin
+    a = 0; b = 0; #10;
+    $display("%b %b   %b   %b", a, b, sum, carry);
 
-        a = i[0];
-        b = i[1];
+    a = 0; b = 1; #10;
+    $display("%b %b   %b   %b", a, b, sum, carry);
 
-        #10
+    a = 1; b = 0; #10;
+    $display("%b %b   %b   %b", a, b, sum, carry);
 
-        $display("%b %b  %b %b", a, b, sum, carry);
-
-    end
+    a = 1; b = 1; #10;
+    $display("%b %b   %b   %b", a, b, sum, carry);
 
     $finish;
 

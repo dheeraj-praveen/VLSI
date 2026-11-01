@@ -1,0 +1,68 @@
+#! /ucrt64/bin/vvp
+:ivl_version "13.0 (stable)" "(v13_0)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\msys64\ucrt64\lib\ivl\system.vpi";
+:vpi_module "C:\msys64\ucrt64\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\msys64\ucrt64\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\msys64\ucrt64\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\msys64\ucrt64\lib\ivl\va_math.vpi";
+:vpi_module "C:\msys64\ucrt64\lib\ivl\v2009.vpi";
+S_00000254951b8fb0 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_00000254951b9140 .scope module, "xnor_gate_tb" "xnor_gate_tb" 3 1;
+ .timescale 0 0;
+v00000254951fe100_0 .var "a", 0 0;
+v00000254951fe2e0_0 .var "b", 0 0;
+v00000254951fe920_0 .net "y", 0 0, L_00000254951a4410;  1 drivers
+S_00000254951b92d0 .scope module, "uut" "xnor_gate" 3 7, 4 1 0, S_00000254951b9140;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "y";
+L_00000254951a43a0 .functor XOR 1, v00000254951fe100_0, v00000254951fe2e0_0, C4<0>, C4<0>;
+L_00000254951a4410 .functor NOT 1, L_00000254951a43a0, C4<0>, C4<0>, C4<0>;
+v00000254951a4130_0 .net *"_ivl_0", 0 0, L_00000254951a43a0;  1 drivers
+v000002549517d900_0 .net "a", 0 0, v00000254951fe100_0;  1 drivers
+v00000254951fe740_0 .net "b", 0 0, v00000254951fe2e0_0;  1 drivers
+v00000254951fe240_0 .net "y", 0 0, L_00000254951a4410;  alias, 1 drivers
+    .scope S_00000254951b9140;
+T_0 ;
+    %vpi_call/w 3 17 "$dumpfile", "wave.vcd" {0 0 0};
+    %vpi_call/w 3 18 "$dumpvars", 32'sb00000000000000000000000000000000, S_00000254951b9140 {0 0 0};
+    %vpi_call/w 3 20 "$display", "a b  y" {0 0 0};
+    %vpi_call/w 3 21 "$display", "------" {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000254951fe100_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000254951fe2e0_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call/w 3 24 "$display", "%b %b  %b", v00000254951fe100_0, v00000254951fe2e0_0, v00000254951fe920_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000254951fe100_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000254951fe2e0_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call/w 3 27 "$display", "%b %b  %b", v00000254951fe100_0, v00000254951fe2e0_0, v00000254951fe920_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000254951fe100_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v00000254951fe2e0_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call/w 3 30 "$display", "%b %b  %b", v00000254951fe100_0, v00000254951fe2e0_0, v00000254951fe920_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000254951fe100_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v00000254951fe2e0_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call/w 3 33 "$display", "%b %b  %b", v00000254951fe100_0, v00000254951fe2e0_0, v00000254951fe920_0 {0 0 0};
+    %vpi_call/w 3 35 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "xnor_gate_tb.sv";
+    "xnor_gate.sv";

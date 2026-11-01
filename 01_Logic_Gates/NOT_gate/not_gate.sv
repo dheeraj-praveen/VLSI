@@ -1,8 +1,7 @@
 module not_gate(
-
-    input logic a,
-
-    output logic b
+    
+    input a,
+    output b
 
 );
 

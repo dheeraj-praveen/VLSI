@@ -17,8 +17,8 @@ initial begin
     $dumpfile("wave.vcd");
     $dumpvars(0, xnor_gate_tb);
 
-    $display("A B | C");
-    $display("-------");
+    $display("a b  y");
+    $display("------");
 
     a = 0; b = 0; #10;
     $display("%b %b  %b", a, b, y);

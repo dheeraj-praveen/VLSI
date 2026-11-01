@@ -1,0 +1,70 @@
+#! /ucrt64/bin/vvp
+:ivl_version "13.0 (stable)" "(v13_0)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\msys64\ucrt64\lib\ivl\system.vpi";
+:vpi_module "C:\msys64\ucrt64\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\msys64\ucrt64\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\msys64\ucrt64\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\msys64\ucrt64\lib\ivl\va_math.vpi";
+:vpi_module "C:\msys64\ucrt64\lib\ivl\v2009.vpi";
+S_000001a4150655c0 .scope package, "$unit" "$unit" 2 1;
+ .timescale 0 0;
+S_000001a415079e80 .scope module, "half_adder_tb" "half_adder_tb" 3 1;
+ .timescale 0 0;
+v000001a415077540_0 .var "a", 0 0;
+v000001a415077fe0_0 .var "b", 0 0;
+v000001a415077f40_0 .net "carry", 0 0, L_000001a415078460;  1 drivers
+v000001a415077680_0 .net "sum", 0 0, L_000001a41503db40;  1 drivers
+S_000001a41507a010 .scope module, "uut" "half_adder" 3 8, 4 1 0, S_000001a415079e80;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "a";
+    .port_info 1 /INPUT 1 "b";
+    .port_info 2 /OUTPUT 1 "sum";
+    .port_info 3 /OUTPUT 1 "carry";
+L_000001a41503db40 .functor XOR 1, v000001a415077540_0, v000001a415077fe0_0, C4<0>, C4<0>;
+L_000001a415078460 .functor AND 1, v000001a415077540_0, v000001a415077fe0_0, C4<1>, C4<1>;
+v000001a41507a210_0 .net "a", 0 0, v000001a415077540_0;  1 drivers
+v000001a41507a2b0_0 .net "b", 0 0, v000001a415077fe0_0;  1 drivers
+v000001a415078300_0 .net "carry", 0 0, L_000001a415078460;  alias, 1 drivers
+v000001a415077cc0_0 .net "sum", 0 0, L_000001a41503db40;  alias, 1 drivers
+    .scope S_000001a415079e80;
+T_0 ;
+    %vpi_call/w 3 19 "$dumpfile", "wave.vcd" {0 0 0};
+    %vpi_call/w 3 20 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001a415079e80 {0 0 0};
+    %vpi_call/w 3 22 "$display", "a b  sum  carry" {0 0 0};
+    %vpi_call/w 3 23 "$display", "---------------" {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001a415077540_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001a415077fe0_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call/w 3 26 "$display", "%b %b   %b   %b", v000001a415077540_0, v000001a415077fe0_0, v000001a415077680_0, v000001a415077f40_0 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001a415077540_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001a415077fe0_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call/w 3 29 "$display", "%b %b   %b   %b", v000001a415077540_0, v000001a415077fe0_0, v000001a415077680_0, v000001a415077f40_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001a415077540_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001a415077fe0_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call/w 3 32 "$display", "%b %b   %b   %b", v000001a415077540_0, v000001a415077fe0_0, v000001a415077680_0, v000001a415077f40_0 {0 0 0};
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001a415077540_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001a415077fe0_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call/w 3 35 "$display", "%b %b   %b   %b", v000001a415077540_0, v000001a415077fe0_0, v000001a415077680_0, v000001a415077f40_0 {0 0 0};
+    %vpi_call/w 3 37 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 5;
+    "N/A";
+    "<interactive>";
+    "-";
+    "half_adder_tb.sv";
+    "half_adder.sv";

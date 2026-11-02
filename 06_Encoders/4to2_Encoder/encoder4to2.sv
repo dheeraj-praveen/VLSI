@@ -1,21 +1,11 @@
 module encoder4to2(
 
-    input logic d0,
+    input logic [3:0] d,
+    output logic [1:0] y
 
-    input logic d1,
-
-    input logic d2,
-
-    input logic d3,
-
-    output logic a,
-
-    output logic b
-    
 );
 
-assign a = d2 + d3;
-
-assign b = d1 + d3;
+assign y[0] = d[1] | d[3];
+assign y[1] = d[2] | d[3];
 
 endmodule
